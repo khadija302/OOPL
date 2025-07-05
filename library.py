@@ -4,7 +4,7 @@ class Library:
         self.name= name
         self.lendDict = {}
 
-    def displayBooks(self)
+    def displayBooks(self):
         print(f"we have the following books in our library:{self.name}")
         for books in self.booksList:
             print(books)
@@ -38,5 +38,26 @@ if __name__ == '__main__':
  while True:
      print(f"\nHello {user_name}, welcome to the {books.name} library. please choose anoption:")
      print("1.Display Books\n2. lend a book\n3. add a book\n4. return a book\n5. quit")
-     user_choice = input("enter your choice to continue")
+     user_choice = input("enter your choice to continue:")
+
+     if user_choice not in ['1', '2', '3', '4', '5']:
+         print("please enter a valid option")
+         continue
+
+     if user_choice == '1':
+      books.displayBooks()
+     elif user_choice == '2':
+      book = input("enter the name of the book you want to lend:")
+      books.lendBook(user_name, book)
+     elif user_choice == '3':
+      book = input("enter the name of the book you want to add:")
+      books.addBook(book)
+     elif user_choice == '4':
+      book = input("enter the name of the book you want to return:")
+      books.returnBook(book)
+     elif user_choice == '5':
+      print(f"thank you for using the library, {user_name}. Goodbye!")
+      break
+ 
+ 
         
